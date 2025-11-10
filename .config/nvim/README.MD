@@ -1,0 +1,7 @@
+\# Reqs
+
+
+
+* ripgrep
+* fzf
+* luarocks
