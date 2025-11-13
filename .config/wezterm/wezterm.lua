@@ -4,6 +4,15 @@ local config = wezterm.config_builder()
 
 local font_size = 13
 
+-- Platform-specific terminal
+if wezterm.target_triple == "x86_64-pc-windows-msvc" then
+  -- Windows only
+  config.default_prog = { "pwsh.exe", "-NoLogo" }
+else
+  -- Non-Windows (Linux/macOS)
+  config.default_prog = { "/bin/bash" } -- or zsh, fish, etc.
+end
+
 -- Tab bar
 config.enable_tab_bar = true
 config.hide_tab_bar_if_only_one_tab = true
