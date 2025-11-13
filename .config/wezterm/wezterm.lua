@@ -2,13 +2,15 @@ local wezterm = require 'wezterm'
 local constants = require 'constants'
 local config = wezterm.config_builder()
 
+local font_size = 13
+
 -- Tab bar
 config.enable_tab_bar = true
 config.hide_tab_bar_if_only_one_tab = true
 
 -- Font
 config.font = wezterm.font('Iosevka Nerd Font Mono')
-config.font_size = 18
+config.font_size = font_size
 config.line_height = 1.2 --120%
 
 -- Colors
@@ -32,6 +34,21 @@ config.window_padding = {
 config.max_fps = 179
 config.prefer_egl = true
 
+-- Font size
+
+local opacity_enabled = true
+
+wezterm.on("font-plus", function(window, _)
+  font_size = font_size + 1
+  config.font_size = font_size
+end)
+
+wezterm.on("font-minus", function(window, _)
+  font_size = font_size - 1
+  config.font_size = font_size
+end)
+
+---------
 
 ----------------------------------------------------------------
 -- Opacity toggle setup
@@ -56,6 +73,16 @@ config.keys = {
     key = "O",
     mods = "CTRL|SHIFT",
     action = wezterm.action.EmitEvent("toggle-opacity"),
+  },
+  {
+	key = "}",
+	mods = "CTRL|SHIFT",
+	action = wezterm.action.EmitEvent("font-plus"),
+  },
+  {
+	key = "{",
+	mods = "CTRL|SHIFT",
+	action = wezterm.action.EmitEvent("font-minus"),
   },
 }
 
