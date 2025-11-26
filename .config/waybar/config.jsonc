@@ -1,0 +1,51 @@
+{
+  "reload_style_on_change": true,
+  "layer": "bottom",
+  "position": "bottom",
+  "height": 40,
+
+  "modules-left": [
+    "custom/exit",
+  ],
+
+  "modules-center": [
+    "hyprland/workspaces"
+  ],
+
+  "modules-right": [
+    "cpu",
+    "custom/gpu",
+    "memory",
+    "disk",
+    "clock",
+  ],
+
+  "cpu": {
+    "interval": 5,
+    "format": " {}%"
+  },
+
+  "custom/gpu": {
+    "interval": 5,
+    "exec": "~/.config/waybar/scripts/gpu_usage.sh",
+    "format": "󰢮 {}%"
+  },
+
+  "memory": {
+    "interval": 5,
+    "format": "{}%"
+  },
+
+  "disk": {
+    "interval": 60,
+    "path": "/home",
+    "format": "{percentage_used}%"
+  },
+  
+  "custom/exit": {
+    "width": 30,
+    "format": " ",
+    "on-click": "wlogout",
+    "tooltip": false,
+  },
+}

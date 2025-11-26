@@ -1,0 +1,67 @@
+
+/* Global look */
+* {
+  font-family: "JetBrainsMono Nerd Font", monospace;
+  font-size: 18px;
+  color: #eaeaea;
+  padding: 5px;
+}
+
+/* Bar background */
+window#waybar {
+  background: rgba(20, 20, 20, 0.85);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* Workspace buttons */
+#workspaces button {
+  padding: 0 8px;
+  margin: 0 4px;
+  background: rgba(60, 60, 60, 0.35);
+  border-radius: 6px;
+  color: #cccccc;
+}
+
+#workspaces button.active {
+  background: rgba(120, 120, 255, 0.35);
+  color: #ffffff;
+}
+
+#workspaces button:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+/* Modules on the right side: CPU, GPU, MEM, DISK */
+#cpu,
+#custom-gpu,
+#memory,
+#disk {
+  padding: 0 10px;
+  margin: 0 6px;
+  background: rgba(50, 50, 50, 0.4);
+  border-radius: 6px;
+}
+
+/* Individual accent colors if you want subtle visual hints */
+#cpu label {
+  color: #ffb7b7;
+}
+
+#custom-gpu label {
+  color: #a6d4ff;
+}
+
+#memory label {
+  color: #b0ffc0;
+}
+
+#disk label {
+  color: #d5b0ff;
+}
+
+/* Make spacing consistent between left/center/right groups */
+.modules-left,
+.modules-center,
+.modules-right {
+  margin: 0 6px;
+}

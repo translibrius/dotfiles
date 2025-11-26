@@ -1,0 +1,12 @@
+[opener]
+open = [
+    { run = 'xdg-open "$@"', desc = "Open", for = "unix" }
+]
+edit = [
+    { run = '${EDITOR:-vi} "$@"', block = true }
+]
+
+[open]
+rules = [
+    { name = "*", use = "open" }
+]
