@@ -13,6 +13,7 @@
   ],
 
   "modules-right": [
+    "custom/wireguard",
     "cpu",
     "custom/gpu",
     "memory",
@@ -48,4 +49,11 @@
     "on-click": "wlogout",
     "tooltip": false,
   },
+
+    "custom/wireguard": {
+        "format": "WG: {}",
+        "exec": "~/.config/waybar/scripts/wg_status.sh",
+        "interval": 5,
+        "on-click": "alacritty -e ~/.config/waybar/scripts/wg_toggle.sh"
+    },
 }
