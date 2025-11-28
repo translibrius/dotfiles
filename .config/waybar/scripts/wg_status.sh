@@ -1,9 +1,10 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-IFACE="wg0" # or "wg", depending on what `ip link` shows
+SERVICE_NAME="wg-quick@wg0"
 
-if ip link show "$IFACE" &>/dev/null; then
-    echo "UP"
+if systemctl is-active --quiet "$SERVICE_NAME"; then
+    # icon: pick any VPN/lock icon from Nerd Font
+    echo '{"text":"󰖂","class":"connected","alt":"VPN connected"}'
 else
-    echo "DOWN"
+    echo '{"text":"󰖂","class":"disconnected","alt":"VPN disconnected"}'
 fi

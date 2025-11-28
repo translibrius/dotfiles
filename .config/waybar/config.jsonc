@@ -1,11 +1,12 @@
+
 {
   "reload_style_on_change": true,
   "layer": "bottom",
   "position": "bottom",
-  "height": 40,
+  "height": 35,
 
   "modules-left": [
-    "custom/exit",
+    "custom/exit"
   ],
 
   "modules-center": [
@@ -18,42 +19,49 @@
     "custom/gpu",
     "memory",
     "disk",
-    "clock",
+    "clock"
   ],
 
   "cpu": {
     "interval": 5,
-    "format": " {}%"
+    "format": "CPU {usage}%",
+    "max-length": 10
   },
 
   "custom/gpu": {
     "interval": 5,
     "exec": "~/.config/waybar/scripts/gpu_usage.sh",
-    "format": "󰢮 {}%"
+    "format": "GPU {}%"
   },
 
   "memory": {
     "interval": 5,
-    "format": "{}%"
+    "format": "RAM {used:0.1f}G"
   },
 
   "disk": {
     "interval": 60,
     "path": "/home",
-    "format": "{percentage_used}%"
-  },
-  
-  "custom/exit": {
-    "width": 30,
-    "format": " ",
-    "on-click": "wlogout",
-    "tooltip": false,
+    "format": "SSD {percentage_used}%"
   },
 
-    "custom/wireguard": {
-        "format": "WG: {}",
-        "exec": "~/.config/waybar/scripts/wg_status.sh",
-        "interval": 5,
-        "on-click": "alacritty -e ~/.config/waybar/scripts/wg_toggle.sh"
-    },
+  "custom/exit": {
+    "width": 30,
+    "format": "",
+    "on-click": "wlogout",
+    "tooltip": false
+  },
+
+  "custom/wireguard": {
+    "format": "{}",
+    "return-type": "json",
+    "exec": "~/.config/waybar/scripts/wg_status.sh",
+    "interval": 5,
+    "on-click": "~/.config/waybar/scripts/wg_toggle.sh -t"
+  },
+
+  "clock": {
+    "interval": 60,
+    "format": " {:%H:%M}"
+  }
 }

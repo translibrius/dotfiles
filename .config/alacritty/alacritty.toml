@@ -2,7 +2,7 @@
 live_config_reload = true
 
 [window]
-opacity = 1.0
+opacity = 0.75
 startup_mode = "Maximized"
 
 [font]
