@@ -4,7 +4,10 @@
 
 - Never add `Co-Authored-By` lines to commits.
 - Single summary line commit messages only, no body.
-- Always ask before committing or pushing, let me review what you did first in the ide :)
+- Use conventional commit format: `type(scope): description`
+  - Types: `feat`, `fix`, `refactor`, `chore`, `docs`, `style`, `test`, `ci`
+  - Scope: relevant module, service, or config name (e.g. `alacritty`, `powershell`, `api`)
+- Never commit or push unless I explicitly ask you to. But once I do, just do it — no need to ask again.
 
 ## Style
 

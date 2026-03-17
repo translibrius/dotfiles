@@ -1,3 +1,6 @@
+# Start in ~/Desktop/works
+Set-Location "$env:USERPROFILE\Desktop\works"
+
 # Initialize Starship prompt
 Invoke-Expression (&starship init powershell)
 

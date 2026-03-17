@@ -1,5 +1,6 @@
-# Starship prompt config — clean powerline-inspired layout
+# Starship prompt config — oh-my-zsh robbyrussell-inspired layout
 scan_timeout = 30
+add_newline = false
 
 format = """
 $directory\
@@ -12,76 +13,78 @@ $rust\
 $python\
 $golang\
 $cmd_duration\
-$line_break\
 $character"""
 
-# Prompt character
+# Prompt character — arrow like robbyrussell
 [character]
-success_symbol = "[>](bold green)"
-error_symbol = "[>](bold red)"
+success_symbol = "[ ➜](bold green)"
+error_symbol = "[ ➜](bold red)"
 
 # Directory — truncate to 3 levels, home as ~
 [directory]
 truncation_length = 3
 truncation_symbol = ".../"
+read_only = ""
 style = "bold cyan"
 
-# Git branch
+# Git branch — git:(branch) style
 [git_branch]
-format = " on [$symbol$branch]($style)"
-symbol = " "
-style = "bold green"
+format = " [git:\\(](bold blue)[$branch](bold red)[\\)](bold blue)"
+symbol = ""
 
-# Git status — compact indicators
+# Git status — single ✗ when dirty, colored yellow
 [git_status]
-format = '([\[$all_status$ahead_behind\]]($style) )'
+format = '([ $all_status]($style))'
 style = "bold yellow"
-conflicted = "="
-ahead = ">"
-behind = "<"
-diverged = "<>"
-untracked = "?"
-stashed = "$"
-modified = "!"
-staged = "+"
-renamed = "r"
-deleted = "x"
+conflicted = ""
+ahead = "↑"
+behind = "↓"
+diverged = "↕"
+untracked = ""
+stashed = ""
+modified = "✗"
+staged = ""
+renamed = ""
+deleted = ""
 
 # C projects
 [c]
-format = "via [$symbol($version)]($style) "
-symbol = " "
+format = " [$symbol($version)]($style)"
+symbol = "c:"
 style = "bold 149"
 
 # CMake
 [cmake]
-format = "via [$symbol($version)]($style) "
-symbol = " "
+format = " [$symbol($version)]($style)"
+symbol = "cmake:"
 style = "bold blue"
 disabled = true
 
 # Node.js
 [nodejs]
-format = "via [$symbol($version)]($style) "
-symbol = " "
+format = " [$symbol($version)]($style)"
+symbol = "node:"
 style = "bold green"
 
 # Rust
 [rust]
-format = "via [$symbol($version)]($style) "
-symbol = " "
+format = " [$symbol($version)]($style)"
+symbol = "rs:"
 style = "bold red"
+detect_extensions = ["rs"]
+detect_files = ["Cargo.toml"]
+detect_folders = []
 
 # Python
 [python]
-format = "via [$symbol($version)]($style) "
-symbol = " "
+format = " [$symbol($version)]($style)"
+symbol = "py:"
 style = "bold yellow"
 
 # Go
 [golang]
-format = "via [$symbol($version)]($style) "
-symbol = " "
+format = " [$symbol($version)]($style)"
+symbol = "go:"
 style = "bold cyan"
 
 # Command duration — show if > 2s
