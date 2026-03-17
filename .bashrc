@@ -7,7 +7,6 @@
 
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
-PS1='[\u@\h \W]\$ '
 
 # Yazi hack
 function y() {
@@ -21,4 +20,5 @@ function y() {
 # Editor
 export EDITOR=nvim
 
-fastfetch
+# Initialize Starship prompt
+eval "$(starship init bash)"

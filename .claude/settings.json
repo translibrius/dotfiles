@@ -1,0 +1,10 @@
+{
+  "enabledPlugins": {
+    "clangd-lsp@claude-plugins-official": true
+  },
+  "effortLevel": "high",
+  "statusLine": {
+    "type": "command",
+    "command": "bash /c/Users/friezy/.claude/statusline-command.sh"
+  }
+}

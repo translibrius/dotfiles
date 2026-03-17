@@ -1,0 +1,91 @@
+# Starship prompt config — clean powerline-inspired layout
+scan_timeout = 30
+
+format = """
+$directory\
+$git_branch\
+$git_status\
+$c\
+$cmake\
+$nodejs\
+$rust\
+$python\
+$golang\
+$cmd_duration\
+$line_break\
+$character"""
+
+# Prompt character
+[character]
+success_symbol = "[>](bold green)"
+error_symbol = "[>](bold red)"
+
+# Directory — truncate to 3 levels, home as ~
+[directory]
+truncation_length = 3
+truncation_symbol = ".../"
+style = "bold cyan"
+
+# Git branch
+[git_branch]
+format = " on [$symbol$branch]($style)"
+symbol = " "
+style = "bold green"
+
+# Git status — compact indicators
+[git_status]
+format = '([\[$all_status$ahead_behind\]]($style) )'
+style = "bold yellow"
+conflicted = "="
+ahead = ">"
+behind = "<"
+diverged = "<>"
+untracked = "?"
+stashed = "$"
+modified = "!"
+staged = "+"
+renamed = "r"
+deleted = "x"
+
+# C projects
+[c]
+format = "via [$symbol($version)]($style) "
+symbol = " "
+style = "bold 149"
+
+# CMake
+[cmake]
+format = "via [$symbol($version)]($style) "
+symbol = " "
+style = "bold blue"
+disabled = true
+
+# Node.js
+[nodejs]
+format = "via [$symbol($version)]($style) "
+symbol = " "
+style = "bold green"
+
+# Rust
+[rust]
+format = "via [$symbol($version)]($style) "
+symbol = " "
+style = "bold red"
+
+# Python
+[python]
+format = "via [$symbol($version)]($style) "
+symbol = " "
+style = "bold yellow"
+
+# Go
+[golang]
+format = "via [$symbol($version)]($style) "
+symbol = " "
+style = "bold cyan"
+
+# Command duration — show if > 2s
+[cmd_duration]
+min_time = 2_000
+format = " took [$duration]($style)"
+style = "bold yellow"
