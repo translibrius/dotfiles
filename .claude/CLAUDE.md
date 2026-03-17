@@ -9,6 +9,12 @@
   - Scope: relevant module, service, or config name (e.g. `alacritty`, `powershell`, `api`)
 - Never commit or push unless I explicitly ask you to. But once I do, just do it — no need to ask again.
 
+## PRs & Remote-Facing Text
+
+- PR descriptions, commit messages, issue comments — anything others will see — must read like a human wrote it.
+- No markdown headers, bullet checklists, or "## Summary" / "## Test plan" sections in PR descriptions. Just write a few normal sentences explaining what changed and why.
+- Keep it casual and short. If the diff speaks for itself, the description can be one line.
+
 ## Style
 
 - Be concise. No trailing summaries of what you just did.

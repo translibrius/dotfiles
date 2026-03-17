@@ -1,20 +1,10 @@
 {
+  "statusLine": {
+    "type": "command",
+    "command": "bash /Users/daumantasb/.claude/statusline-command.sh"
+  },
   "enabledPlugins": {
     "clangd-lsp@claude-plugins-official": true
   },
-  "effortLevel": "high",
-  "statusLine": {
-    "type": "command",
-    "command": "bash /c/Users/friezy/.claude/statusline-command.sh"
-  },
-  "permissions": {
-    "allow": [
-      "Bash(cd *)",
-      "Bash(git *)",
-      "WebFetch(*)",
-      "WebSearch(*)",
-      "Edit(~/.claude/*)",
-      "Write(~/.claude/*)"
-    ]
-  }
+  "effortLevel": "high"
 }
