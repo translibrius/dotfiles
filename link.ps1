@@ -25,8 +25,9 @@ $dotfiles = $PSScriptRoot
 # Mapping: repo path (relative to dotfiles) -> system target path
 # Cross-platform configs use .config/ in repo, mapped to Windows locations
 $links = @(
-    # Alacritty: Windows uses %APPDATA%/alacritty/
-    @{ Src = ".config\alacritty\alacritty.toml";  Dst = "$env:APPDATA\alacritty\alacritty.toml" }
+    # Alacritty: shared base config to ~/.config, Windows overrides to %APPDATA%
+    @{ Src = ".config\alacritty\alacritty.toml";  Dst = "$env:USERPROFILE\.config\alacritty\alacritty.toml" }
+    @{ Src = "windows\alacritty\alacritty.toml";  Dst = "$env:APPDATA\alacritty\alacritty.toml" }
 
     # Starship: uses ~/.config/starship.toml on all platforms
     @{ Src = ".config\starship.toml";              Dst = "$env:USERPROFILE\.config\starship.toml" }

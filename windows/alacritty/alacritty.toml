@@ -1,0 +1,22 @@
+# Windows overrides — link.ps1 puts this at %APPDATA%/alacritty/alacritty.toml
+[general]
+import = ["~/.config/alacritty/alacritty.toml"]
+
+[terminal.shell]
+program = "powershell.exe"
+args = ["-NoLogo"]
+
+[[keyboard.bindings]]
+key = "C"
+mods = "Control"
+action = "Copy"
+
+[[keyboard.bindings]]
+key = "V"
+mods = "Control"
+action = "Paste"
+
+[[keyboard.bindings]]
+key = "C"
+mods = "Control|Shift"
+chars = "\u0003"
