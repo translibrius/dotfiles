@@ -28,10 +28,10 @@ fi
 echo ""
 if [ "$ACTION" = "unstow" ]; then
     echo "  Unlinking dotfiles..."
-    stow -v -D -d "$(dirname "$DOTFILES")" -t "$HOME" $DRY "$(basename "$DOTFILES")"
+    stow -v -D -t "$HOME" $DRY -d "$DOTFILES" .
 else
     echo "  Linking dotfiles..."
-    stow -v -d "$(dirname "$DOTFILES")" -t "$HOME" $DRY "$(basename "$DOTFILES")"
+    stow -v --adopt -t "$HOME" $DRY -d "$DOTFILES" .
 fi
 
 # Link zsh profile if on macOS
