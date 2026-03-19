@@ -1,5 +1,5 @@
 ---
-name: push
+name: skill_push
 description: Stage, commit, push, and optionally open a PR. Follows git conventions — no Co-Authored-By, single-line conventional commits, human PR descriptions.
 argument-hint: "[pr]"
 allowed-tools: Bash(git *), Bash(gh *), Read, Grep, Glob

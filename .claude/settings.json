@@ -6,5 +6,6 @@
   "enabledPlugins": {
     "clangd-lsp@claude-plugins-official": true
   },
-  "effortLevel": "high"
+  "effortLevel": "high",
+  "model": "opus[1m]"
 }
