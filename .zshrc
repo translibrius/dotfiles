@@ -55,3 +55,5 @@ eval "$(zoxide init zsh)"
 
 # Initialize Starship prompt (overrides oh-my-zsh theme)
 eval "$(starship init zsh)"
+
+export PATH="$HOME/bin:$PATH"

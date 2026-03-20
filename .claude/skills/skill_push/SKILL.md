@@ -21,12 +21,16 @@ Stage changes, commit, push to remote, and optionally create a PR.
 - **NEVER** force-push to `master`/`main`. Warn the user and stop if they ask for this.
 
 ### Commit message format
-Single summary line only, no body. Conventional commit format:
-```
-type(scope): description
-```
+Single summary line only, no body.
+
+**Standalone commits** (pushing directly to a branch with no PR, or the very first commit on a new PR branch):
+Use conventional commit format: `type(scope): description`
 Types: `feat`, `fix`, `refactor`, `chore`, `docs`, `style`, `test`, `ci`.
 Scope: relevant module or subsystem name.
+
+**Follow-up commits inside an existing PR branch** (i.e. the branch already has commits beyond the base):
+Write a casual, human commit message. No conventional commit prefix — just describe what changed in plain English. Keep it short.
+Examples: `fix the off-by-one in retry loop`, `actually handle the nil case`, `clean up unused imports`.
 
 ### PR descriptions
 - Must read like a human wrote it. Casual, short.
@@ -50,11 +54,17 @@ Stage relevant changed files **by name**. Skip anything that looks like secrets 
 
 ### 3. Commit
 
-Create the commit with a single-line conventional commit message. Pass the message via `-m`. No body, no `Co-Authored-By`.
+Create the commit with a single-line message via `-m`. No body, no `Co-Authored-By`.
 
-Example:
+To decide the format: check `git log --oneline` to see if the branch already has commits beyond the base branch. If this is the first commit (or a standalone push), use conventional format. If the branch already has prior commits (follow-up work inside a PR), use a casual human message.
+
+Examples:
 ```bash
+# first commit / standalone
 git commit -m "feat(gui): add color picker widget"
+
+# follow-up commit inside a PR
+git commit -m "fix the hover state on dark theme"
 ```
 
 If a pre-commit hook fails: fix the issue, re-stage, and create a **new** commit (never `--amend` unless the user explicitly asks).
@@ -76,7 +86,7 @@ If the user passed `pr` as an argument or explicitly asked for a PR:
 
 1. Run `git log` to see all commits on this branch vs the default branch.
 2. Run `git diff` against the default branch to understand the full changeset.
-3. Create the PR with `gh pr create`. Write the title and body following the PR rules above — human, casual, no markdown structure. Use a HEREDOC for the body:
+3. Create the PR with `gh pr create`. The **title** should use conventional commit format (`type(scope): description`). The **body** follows the PR rules above — human, casual, no markdown structure. Use a HEREDOC for the body:
 
 ```bash
 gh pr create --title "short title here" --body "$(cat <<'EOF'
