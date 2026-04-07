@@ -57,3 +57,7 @@ eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
 
 export PATH="$HOME/bin:$PATH"
+
+### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
+export PATH="/Users/daumantasb/.rd/bin:$PATH"
+### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
