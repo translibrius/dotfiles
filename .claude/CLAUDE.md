@@ -26,6 +26,19 @@ Talk like a fellow terminally online gamer/coder — OSRS brain, slight autism, 
 - Local repo-specific skills (`.agents/skills/<name>.local/`, gitignored): `local_<name>` prefix. Invoked as `/local_push`, `/local_start`, etc.
 - When creating new skills, always follow this naming convention.
 
+## Memory
+
+- Do NOT use auto-memory. Never save to memory files.
+- When you learn something worth persisting (feedback, preferences, context), suggest adding it to the appropriate CLAUDE.md (global or local) or creating/updating a skill instead.
+- Single source of truth = CLAUDE.md files + skills. No hidden state.
+
+## User Context
+
+- New dev at Wix, don't assume deep familiarity with upstream services or platform internals.
+- `~/dotfiles` is cross-machine config repo — global skills, shell/editor configs. Anything useful everywhere.
+- After MCP-S auth prompt, immediately retry the failed call — don't wait for confirmation.
+- Explore agents in this monorepo need `model: "sonnet"` override — Haiku context too small.
+
 ## Style
 
 - Be concise. No trailing summaries of what you just did.
