@@ -7,56 +7,55 @@ allowed-tools: Bash(git *), Bash(gh *), Read, Grep, Glob
 
 # Push
 
-Stage changes, commit, push to remote, and optionally create a PR.
+Stage changes, commit, push to remote, optionally create PR.
 
 ## Rules — follow these exactly
 
 ### Shell discipline
-- **NEVER** chain commands with `&&` or `;` or `||`. Run each git/gh command as its own separate Bash call.
-- **NEVER** `cd` anywhere. We are already in the project root.
-- **NEVER** add a `Co-Authored-By` line to commit messages.
+- **NEVER** chain commands with `&&` or `;` or `||`. Run each git/gh command as own separate Bash call.
+- **NEVER** `cd` anywhere. Already in project root.
+- **NEVER** add `Co-Authored-By` line to commit messages.
 - **NEVER** use `--no-verify`, `--no-gpg-sign`, or any hook-bypass flag.
 - **NEVER** use `-i` (interactive) flags on any git command.
 - **NEVER** use `git add -A` or `git add .` — stage specific files by name.
-- **NEVER** force-push to `master`/`main`. Warn the user and stop if they ask for this.
+- **NEVER** force-push to `master`/`main`. Warn user and stop if they ask.
 
 ### Commit message format
 Single summary line only, no body.
 
-**Standalone commits** (pushing directly to a branch with no PR, or the very first commit on a new PR branch):
+**Standalone commits** (pushing directly to branch with no PR, or first commit on new PR branch):
 Use conventional commit format: `type(scope): description`
 Types: `feat`, `fix`, `refactor`, `chore`, `docs`, `style`, `test`, `ci`.
 Scope: relevant module or subsystem name.
 
-**Follow-up commits inside an existing PR branch** (i.e. the branch already has commits beyond the base):
-Write a casual, human commit message. No conventional commit prefix — just describe what changed in plain English. Keep it short.
+**Follow-up commits inside existing PR branch** (branch already has commits beyond base):
+Write casual, human commit message. No conventional commit prefix — describe what changed in plain English. Keep short.
 Examples: `fix the off-by-one in retry loop`, `actually handle the nil case`, `clean up unused imports`.
 
 ### PR descriptions
-- Must read like a human wrote it. Casual, short.
+- Must read like human wrote it. Casual, short.
 - No markdown headers, no `## Summary` / `## Test plan` sections, no bullet checklists.
-- Just a few normal sentences explaining what changed and why.
-- If the diff speaks for itself, one line is fine.
+- Max 1 sentence. If diff speaks for itself, even that can be skipped.
 
 ## Steps
 
-### 1. Assess the current state
+### 1. Assess current state
 
-Run these as **separate** Bash calls (parallel is fine):
-- `git status` — see what's changed and what's staged
-- `git diff` — see unstaged changes
-- `git diff --cached` — see already-staged changes
+Run as **separate** Bash calls (parallel fine):
+- `git status` — what changed and staged
+- `git diff` — unstaged changes
+- `git diff --cached` — already-staged changes
 - `git log --oneline -5` — recent commits for style reference
 
 ### 2. Stage files
 
-Stage relevant changed files **by name**. Skip anything that looks like secrets (`.env`, credentials, tokens). If unsure what the user wants staged, ask.
+Stage relevant changed files **by name**. Skip anything that looks like secrets (`.env`, credentials, tokens). If unsure what user wants staged, ask.
 
 ### 3. Commit
 
-Create the commit with a single-line message via `-m`. No body, no `Co-Authored-By`.
+Create commit with single-line message via `-m`. No body, no `Co-Authored-By`.
 
-To decide the format: check `git log --oneline` to see if the branch already has commits beyond the base branch. If this is the first commit (or a standalone push), use conventional format. If the branch already has prior commits (follow-up work inside a PR), use a casual human message.
+To decide format: check `git log --oneline` — see if branch already has commits beyond base branch. First commit (or standalone push) → conventional format. Branch has prior commits (follow-up work inside PR) → casual human message.
 
 Examples:
 ```bash
@@ -67,11 +66,11 @@ git commit -m "feat(gui): add color picker widget"
 git commit -m "fix the hover state on dark theme"
 ```
 
-If a pre-commit hook fails: fix the issue, re-stage, and create a **new** commit (never `--amend` unless the user explicitly asks).
+If pre-commit hook fails: fix issue, re-stage, create **new** commit (never `--amend` unless user explicitly asks).
 
 ### 4. Push
 
-Determine the current branch. If it has no upstream, push with `-u`:
+Determine current branch. If no upstream, push with `-u`:
 ```bash
 git push -u origin <branch>
 ```
@@ -82,11 +81,11 @@ git push
 
 ### 5. PR (only if `$ARGUMENTS` contains "pr")
 
-If the user passed `pr` as an argument or explicitly asked for a PR:
+If user passed `pr` as argument or explicitly asked for PR:
 
-1. Run `git log` to see all commits on this branch vs the default branch.
-2. Run `git diff` against the default branch to understand the full changeset.
-3. Create the PR with `gh pr create`. The **title** should use conventional commit format (`type(scope): description`). The **body** follows the PR rules above — human, casual, no markdown structure. Use a HEREDOC for the body:
+1. Run `git log` — see all commits on branch vs default branch.
+2. Run `git diff` against default branch — understand full changeset.
+3. Create PR with `gh pr create`. **Title** uses conventional commit format (`type(scope): description`). **Body** follows PR rules above — human, casual, no markdown structure. Use HEREDOC for body:
 
 ```bash
 gh pr create --title "short title here" --body "$(cat <<'EOF'
@@ -95,11 +94,11 @@ EOF
 )"
 ```
 
-4. Output the PR URL.
+4. Output PR URL.
 
 ## What NOT to do
 
-- Don't read or explore code beyond git commands — this skill is just for shipping.
+- Don't read or explore code beyond git commands — skill just for shipping.
 - Don't make changes to any files.
 - Don't push without committing first.
 - Don't create empty commits.

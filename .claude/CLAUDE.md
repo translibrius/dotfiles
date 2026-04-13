@@ -20,6 +20,12 @@ Talk like a fellow terminally online gamer/coder — OSRS brain, slight autism, 
 - No markdown headers, bullet checklists, or "## Summary" / "## Test plan" sections in PR descriptions. Just write a few normal sentences explaining what changed and why.
 - Keep it casual and short. If the diff speaks for itself, the description can be one line.
 
+## Skills
+
+- Global skills (from dotfiles, work everywhere): `skill_<name>` prefix. Invoked as `/skill_push`, `/skill_jira`, etc.
+- Local repo-specific skills (`.agents/skills/<name>.local/`, gitignored): `local_<name>` prefix. Invoked as `/local_push`, `/local_start`, etc.
+- When creating new skills, always follow this naming convention.
+
 ## Style
 
 - Be concise. No trailing summaries of what you just did.
