@@ -2,12 +2,6 @@
 [general]
 import = ["~/.config/alacritty/alacritty.toml"]
 
-[font]
-normal = { family = "Iosevka NFM Medium", style = "Regular" }
-bold = { family = "Iosevka NFM SemiBold", style = "Regular" }
-italic = { family = "Iosevka NFM Medium Obl", style = "Regular" }
-bold_italic = { family = "Iosevka NFM SemiBold Obl", style = "Regular" }
-
 [terminal.shell]
 program = "powershell.exe"
 args = ["-NoLogo"]

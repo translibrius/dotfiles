@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(powershell.exe -NoLogo -Command \"echo $PROFILE\")",
+      "Bash(powershell.exe -NoLogo -Command 'Write-Output $PROFILE')",
+      "Bash(winget install:*)",
+      "Bash(git:*)",
+      "Read(//c/Users/friezy/Desktop/works/personal_projects/dotfiles/$USERPROFILE/.config/**)",
+      "Bash(STARSHIP_CONFIG=\"$USERPROFILE/.config/starship.toml\")",
+      "Bash(echo \"Expected: $STARSHIP_CONFIG\")",
+      "Bash(echo \"Env var: $STARSHIP_CONFIG\")",
+      "Bash(powershell.exe -ExecutionPolicy Bypass -File link.ps1 -Force)",
+      "Bash(powershell.exe -Command \"New-Item -ItemType SymbolicLink -Path ''$TEMP/test_symlink'' -Target ''C:/Users/friezy/Desktop/works/personal_projects/dotfiles/link.ps1'' -Force\")",
+      "Bash(powershell.exe -Command \"Remove-Item ''$TEMP/test_symlink'' -Force\")",
+      "Bash(powershell.exe -Command \"Get-Item '$env:USERPROFILE\\\\.config\\\\starship.toml' | Select-Object FullName, LinkType, Target\")"
+    ]
+  }
+}
