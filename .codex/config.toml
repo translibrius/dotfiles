@@ -1,0 +1,12 @@
+personality = "pragmatic"
+[projects."/Users/daumantasb/Documents/xtras/Realm"]
+trust_level = "trusted"
+
+[projects."/Users/daumantasb/Documents/wix/events"]
+trust_level = "trusted"
+
+[projects."/Users/daumantasb"]
+trust_level = "trusted"
+
+[tui]
+status_line = ["git-branch", "context-used", "five-hour-limit", "weekly-limit", "used-tokens"]
