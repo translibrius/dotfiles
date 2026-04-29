@@ -1,11 +1,24 @@
 {
+  "permissions": {
+    "defaultMode": "auto"
+  },
+  "model": "opus[1m]",
   "statusLine": {
     "type": "command",
     "command": "bash ~/.claude/statusline-command.sh"
   },
   "enabledPlugins": {
-    "clangd-lsp@claude-plugins-official": true
+    "clangd-lsp@claude-plugins-official": true,
+    "caveman@caveman": true
   },
-  "effortLevel": "high",
-  "model": "opus[1m]"
+  "extraKnownMarketplaces": {
+    "caveman": {
+      "source": {
+        "source": "github",
+        "repo": "JuliusBrussee/caveman"
+      }
+    }
+  },
+  "effortLevel": "xhigh",
+  "skipAutoPermissionPrompt": true
 }
