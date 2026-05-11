@@ -4,6 +4,7 @@ live_config_reload = true
 [window]
 opacity = 1.0
 startup_mode = "Windowed"
+dimensions = { columns = 120, lines = 35 }
 
 [font]
 size = 13
