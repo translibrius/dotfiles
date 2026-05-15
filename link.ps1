@@ -52,6 +52,9 @@ $links = @(
 
     # Claude Code global skills
     @{ Src = ".claude\skills";                     Dst = "$env:USERPROFILE\.claude\skills" }
+
+    # Codex global config
+    @{ Src = ".codex\config.toml";                  Dst = "$env:USERPROFILE\.codex\config.toml" }
 )
 
 function Link-Dotfile {
