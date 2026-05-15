@@ -11,6 +11,15 @@ trust_level = "trusted"
 [projects."/Users/daumantasb"]
 trust_level = "trusted"
 
+[tui]
+status_line = [
+  "git-branch",
+  "context-used",
+  "five-hour-limit",
+  "weekly-limit",
+  "used-tokens",
+]
+
 [projects.'c:\windows\system32']
 trust_level = "trusted"
 
@@ -19,9 +28,6 @@ trust_level = "trusted"
 
 [projects.'d:\works\primecom\android_scanmaster']
 trust_level = "trusted"
-
-[tui]
-status_line = ["git-branch", "context-used", "five-hour-limit", "weekly-limit", "used-tokens"]
 
 [tui.model_availability_nux]
 "gpt-5.5" = 4
