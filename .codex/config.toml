@@ -1,0 +1,17 @@
+approval_policy = "on-request"
+sandbox_mode = "danger-full-access"
+
+[projects.'c:\windows\system32']
+trust_level = "trusted"
+
+[projects.'d:\works\primecom']
+trust_level = "trusted"
+
+[projects.'d:\works\primecom\android_scanmaster']
+trust_level = "trusted"
+
+[tui.model_availability_nux]
+"gpt-5.5" = 4
+
+[windows]
+sandbox = "elevated"
