@@ -5,6 +5,6 @@ Invoke-Expression (&starship init powershell)
 Invoke-Expression (& { (zoxide init powershell | Out-String) })
 
 # Quick navigation aliases
-function dots { Set-Location "C:\Users\friezy\Desktop\works\personal_projects\dotfiles" }
-function proj { Set-Location "C:\Users\friezy\Desktop\works\personal_projects" }
-function realm { Set-Location "C:\Users\friezy\Desktop\works\personal_projects\c\Realm" }
+function dots { Set-Location "D:\works\personal_projects\dotfiles" }
+function proj { Set-Location "D:\works\personal_projects" }
+function realm { Set-Location "D:\works\personal_projects\c\Realm" }

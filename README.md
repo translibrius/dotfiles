@@ -9,6 +9,8 @@ Personal config files for Linux (Hyprland/Wayland) and Windows.
 .claude/
   CLAUDE.md                     # Claude Code global instructions
   settings.json                 # Claude Code global settings
+.codex/
+  config.toml                   # Codex global settings
 .config/
   alacritty/alacritty.toml      # Terminal emulator
   starship.toml                 # Cross-shell prompt
@@ -65,6 +67,7 @@ Requires **Developer Mode** (Settings > System > For developers) or **Run as Adm
 | `windows/clink/starship.lua` | `%LOCALAPPDATA%/clink/starship.lua` |
 | `.claude/settings.json` | `~/.claude/settings.json` |
 | `.claude/CLAUDE.md` | `~/.claude/CLAUDE.md` |
+| `.codex/config.toml` | `~/.codex/config.toml` |
 
 ## Dependencies
 
