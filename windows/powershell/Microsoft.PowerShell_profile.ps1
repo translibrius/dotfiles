@@ -1,4 +1,4 @@
-# Initialize Starship prompt
+﻿# Initialize Starship prompt
 Invoke-Expression (&starship init powershell)
 
 # Initialize zoxide (smarter cd)

@@ -52,6 +52,13 @@ $links = @(
 
     # Claude Code global skills
     @{ Src = ".claude\skills";                     Dst = "$env:USERPROFILE\.claude\skills" }
+
+    # Codex global config, hooks, rules, and skills
+    @{ Src = ".codex\config.toml";                  Dst = "$env:USERPROFILE\.codex\config.toml" }
+    @{ Src = ".codex\hooks.json";                   Dst = "$env:USERPROFILE\.codex\hooks.json" }
+    @{ Src = ".codex\rules\default.rules";          Dst = "$env:USERPROFILE\.codex\rules\default.rules" }
+    @{ Src = ".codex\skills\caveman";               Dst = "$env:USERPROFILE\.codex\skills\caveman" }
+    @{ Src = ".codex\skills\compress";              Dst = "$env:USERPROFILE\.codex\skills\compress" }
 )
 
 function Link-Dotfile {

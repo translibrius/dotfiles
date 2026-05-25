@@ -17,6 +17,11 @@ What lives here:
 - `rules/default.rules`: approval allowlist learned over time
 - `skills/`: user-installed global skills
 
+Direct editing policy:
+
+- `sandbox_mode = "danger-full-access"` keeps Codex out of the workspace-write sandbox.
+- `approval_policy = "never"` prevents approval escalation loops; failures are returned directly to Codex.
+
 Current extras:
 
 - `caveman`: terse communication mode
