@@ -56,9 +56,6 @@ status_line = [
   "used-tokens",
 ]
 
-[projects.'c:\windows\system32']
-trust_level = "trusted"
-
 [projects.'d:\works\primecom']
 trust_level = "trusted"
 

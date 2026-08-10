@@ -28,10 +28,57 @@ fi
 echo ""
 if [ "$ACTION" = "unstow" ]; then
     echo "  Unlinking dotfiles..."
-    stow -v -D -t "$HOME" $DRY -d "$DOTFILES" .
+    stow -v -D --ignore='^\.codex' -t "$HOME" $DRY -d "$DOTFILES" .
 else
     echo "  Linking dotfiles..."
-    stow -v --adopt -t "$HOME" $DRY -d "$DOTFILES" .
+    stow -v --adopt --ignore='^\.codex' -t "$HOME" $DRY -d "$DOTFILES" .
+fi
+
+# ~/.codex also contains Codex-managed runtime state, so link only the
+# user-managed entries instead of asking Stow to own the whole directory.
+CODEX_LINKS=(
+    "config.toml"
+    "hooks.json"
+    "rules/default.rules"
+    "skills/caveman"
+    "skills/compress"
+)
+
+for RELATIVE_PATH in "${CODEX_LINKS[@]}"; do
+    SOURCE_PATH="$DOTFILES/.codex/$RELATIVE_PATH"
+    TARGET_PATH="$HOME/.codex/$RELATIVE_PATH"
+
+    if [ "$ACTION" = "unstow" ]; then
+        if [ -L "$TARGET_PATH" ] && [ "$(readlink "$TARGET_PATH")" = "$SOURCE_PATH" ]; then
+            if [ -n "$DRY" ]; then
+                echo "  WOULD UNLINK  ~/.codex/$RELATIVE_PATH"
+            else
+                rm "$TARGET_PATH"
+                echo "  UNLINKED  ~/.codex/$RELATIVE_PATH"
+            fi
+        fi
+        continue
+    fi
+
+    if [ -n "$DRY" ]; then
+        echo "  WOULD LINK  ~/.codex/$RELATIVE_PATH"
+        continue
+    fi
+
+    mkdir -p "$(dirname "$TARGET_PATH")"
+    ln -sfn "$SOURCE_PATH" "$TARGET_PATH"
+    echo "  LINKED  ~/.codex/$RELATIVE_PATH"
+done
+
+# Remove the stale nested link created by older versions of this script.
+if [ "$ACTION" != "unstow" ] && [ -L "$HOME/.codex/.codex" ] && \
+   [ "$(readlink "$HOME/.codex/.codex")" = "$DOTFILES/.codex" ]; then
+    if [ -n "$DRY" ]; then
+        echo "  WOULD REMOVE  ~/.codex/.codex (stale nested link)"
+    else
+        rm "$HOME/.codex/.codex"
+        echo "  REMOVED  ~/.codex/.codex (stale nested link)"
+    fi
 fi
 
 # Link zsh profile if on macOS
