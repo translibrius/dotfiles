@@ -62,7 +62,7 @@
     "trust_all_worktrees": true
   },
   "lsp_results_location": "picker",
-  "go_to_definition_fallback": "none",
+  "go_to_definition_fallback": "find_all_references",
   "ui_font_size": 16,
   "buffer_font_size": 15,
   "theme": {
