@@ -14,4 +14,9 @@ prefix_rule(pattern=["gh", "pr", "view"], decision="allow")
 prefix_rule(pattern=["git", "rev-parse"], decision="allow")
 prefix_rule(pattern=["gh", "api", "repos/wix-private/events/pulls/24913/comments"], decision="allow")
 prefix_rule(pattern=["gh", "search", "code"], decision="allow")
+<<<<<<< Updated upstream
 prefix_rule(pattern=["gh", "auth", "status"], decision="allow")
+=======
+prefix_rule(pattern=["C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe", "-Command", "$generatedPath = (Resolve-Path -LiteralPath '.\\android\\build').Path; $expectedPath = [System.IO.Path]::GetFullPath((Join-Path (Get-Location) 'android\\build')); if ($generatedPath -ne $expectedPath) { throw \"Refusing to remove unexpected path: $generatedPath\" }; Remove-Item -LiteralPath $generatedPath -Recurse -Force; git status --short"], decision="allow")
+prefix_rule(pattern=["Remove-Item", "-LiteralPath", "C:\\Users\\User\\primecom\\Scanmaster2_Client\\packages", "-Recurse", "-Force"], decision="allow")
+>>>>>>> Stashed changes

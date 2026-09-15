@@ -1,7 +1,7 @@
 # Direct local editing: do not constrain Codex to a workspace sandbox.
 sandbox_mode = "danger-full-access"
 approval_policy = "on-request"
-model = "gpt-5.5"
+model = "gpt-5.6-sol"
 model_reasoning_effort = "high"
 personality = "friendly"
 
@@ -56,14 +56,60 @@ status_line = [
   "used-tokens",
 ]
 
+<<<<<<< Updated upstream
+=======
+[tui.model_availability_nux]
+"gpt-5.5" = 4
+gpt-6-astra = 1
+
+>>>>>>> Stashed changes
 [projects.'d:\works\primecom']
 trust_level = "trusted"
 
 [projects.'d:\works\primecom\android_scanmaster']
 trust_level = "trusted"
 
-[tui.model_availability_nux]
-"gpt-5.5" = 4
+[projects.'c:\users\user\homelab']
+trust_level = "trusted"
+
+[projects.'c:\users\user\primecom\vilnius-kyiv-mapbox-cinematic']
+trust_level = "trusted"
+
+[projects.'c:\users\user\primecom\raider']
+trust_level = "trusted"
+
+[projects.'c:\users\user\dev\maplibre_native_flutter_spike\third_party\maplibre-native']
+trust_level = "trusted"
+
+[projects.'c:\users\user\primecom\spider_server']
+trust_level = "trusted"
+
+[projects.'c:\users\user\desktop\maplibre_test\test']
+trust_level = "trusted"
+
+[projects.'c:\users\user\dotfiles']
+trust_level = "trusted"
+
+[projects.'c:\users\user\primecom\scanmaster2_client']
+trust_level = "trusted"
+
+[projects.'c:\users\user\primecom\rssi_mon\rssimon-linux']
+trust_level = "trusted"
+
+[projects.'c:\users\user\primecom\rssi_mon']
+trust_level = "trusted"
+
+[projects.'c:\users\user\appdata\local\mss_2026-05-19']
+trust_level = "trusted"
+
+[projects.'c:\users\user\desktop\monorepo']
+trust_level = "trusted"
+
+[projects.'\\?\unc\wsl.localhost\ubuntu-24.04\home\friezy\src']
+trust_level = "trusted"
 
 [windows]
 sandbox = "elevated"
+
+[notice]
+hide_rate_limit_model_nudge = true
