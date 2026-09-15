@@ -32,6 +32,9 @@ $links = @(
     # Starship: uses ~/.config/starship.toml on all platforms
     @{ Src = ".config\starship.toml";              Dst = "$env:USERPROFILE\.config\starship.toml" }
 
+    # Zed
+    @{ Src = ".config\zed\settings.json";          Dst = "$env:APPDATA\Zed\settings.json" }
+
     # Git Bash
     @{ Src = ".bashrc";                            Dst = "$env:USERPROFILE\.bashrc" }
 

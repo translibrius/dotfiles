@@ -13,6 +13,7 @@ Personal config files for Linux (Hyprland/Wayland) and Windows.
   config.toml                   # Codex global settings
 .config/
   alacritty/alacritty.toml      # Terminal emulator
+  zed/settings.json             # Zed editor settings
   starship.toml                 # Cross-shell prompt
   nvim/                         # Neovim (LazyVim) — git submodule
   hypr/hyprland.conf            # Hyprland window manager (Linux)
@@ -61,6 +62,7 @@ Requires **Developer Mode** (Settings > System > For developers) or **Run as Adm
 | Repo path | Links to |
 |---|---|
 | `.config/alacritty/alacritty.toml` | `%APPDATA%/alacritty/alacritty.toml` |
+| `.config/zed/settings.json` | `%APPDATA%/Zed/settings.json` |
 | `.config/starship.toml` | `~/.config/starship.toml` |
 | `.bashrc` | `~/.bashrc` |
 | `windows/powershell/Microsoft.PowerShell_profile.ps1` | `~/Documents/WindowsPowerShell/` and `~/Documents/PowerShell/` |
