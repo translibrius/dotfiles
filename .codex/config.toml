@@ -56,13 +56,10 @@ status_line = [
   "used-tokens",
 ]
 
-<<<<<<< Updated upstream
-=======
 [tui.model_availability_nux]
 "gpt-5.5" = 4
-gpt-6-astra = 1
+gpt-6-astra = 4
 
->>>>>>> Stashed changes
 [projects.'d:\works\primecom']
 trust_level = "trusted"
 
@@ -106,6 +103,15 @@ trust_level = "trusted"
 trust_level = "trusted"
 
 [projects.'\\?\unc\wsl.localhost\ubuntu-24.04\home\friezy\src']
+trust_level = "trusted"
+
+[projects.'c:\users\user\primecom\superspider']
+trust_level = "trusted"
+
+[projects.'c:\users\user\primecom\spidericc']
+trust_level = "trusted"
+
+[projects.'c:\users\user\primecom\scanmaster_device']
 trust_level = "trusted"
 
 [windows]

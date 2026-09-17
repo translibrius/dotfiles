@@ -31,6 +31,9 @@
     }
   ],
   "languages": {
+    "C++": {
+      "show_edit_predictions": false
+    },
     "Dart": {
       "show_edit_predictions": false
     }
@@ -52,6 +55,7 @@
   "mouse_wheel_zoom": true,
   "cli_default_open_behavior": "existing_window",
   "project_panel": {
+    "auto_reveal_entries": false,
     "auto_fold_dirs": false,
     "dock": "left"
   },
