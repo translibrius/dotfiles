@@ -40,6 +40,7 @@ Minimal. Only write ones that will save future-me time: non-obvious why, formula
 ## Git
 - When working autonomously: create a branch, make small focused commits with conventional-commit messages, and push the branch.
 - Never push to or rewrite main/master unless I explicitly ask. Never force-push.
+- No AI attribution anywhere: no "Co-Authored-By: Claude", no "Generated with Claude Code" in commits or PRs.
 
 ## Verification
 Nothing is done until it's verified. Build it, run the tests or a real repro and show the evidence. Add a regression test for bug fixes where feasible. If you couldn't verify something (e.g. no hardware attached), say so explicitly.
