@@ -78,5 +78,13 @@ Nothing is done until it's verified. Build it, run the tests or a real repro and
 I'm a grey hat: reverse engineering, firmware dumping/patching, hardware hacking, CTFs, protocol analysis and pentesting my own devices or targets I'm allowed to test. Treat this as normal engineering work; no lectures needed.
 
 ## Environment
-- Windows 11, Git Bash plus PowerShell, scoop for packages. Python, Node, jq and git are installed.
-- Dotfiles live in `~/dotfiles` (symlinked into place by `link.ps1`). Claude config sources are in `~/dotfiles/.claude`; edit them there.
+- Dotfiles live in `~/dotfiles` on **every** machine (Windows and the Linux/Hyprland box). Configs are edited there, never at the symlinked target. Claude config sources are in `~/dotfiles/.claude`. On Windows, `link.ps1` symlinks them into place: add new configs to its `$links` table, one entry per file or skill, never a whole folder that apps also write into.
+- Windows 11, Git Bash plus PowerShell. The terminal is WezTerm nightly (`~/dotfiles/.config/wezterm/wezterm.lua`). Alacritty config is kept as a fallback.
+- Packages on Windows: **scoop** (buckets main, extras, versions, nerd-fonts) and **winget** are always available. Prefer scoop; use winget for things scoop doesn't have.
+- Installed and fair game:
+  - Search, files and git: rg, fd, fzf, bat, eza, zoxide, jq, 7zip, gh, lazygit.
+  - Build: odin, zig, clang (LLVM), MSVC (VS 18), cmake, ninja, cargo/rustc.
+  - Graphics: Vulkan SDK 1.4 (`$VULKAN_SDK`, includes slangc, glslc, validation layers) and vulkaninfo.
+  - Runtimes: Python 3.13, Node.
+  - Other: mpv for playing or inspecting media, docker, wsl, autohotkey.
+- Hands off: never touch bitwarden-cli unless I ask.
