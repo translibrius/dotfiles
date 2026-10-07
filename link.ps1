@@ -29,6 +29,9 @@ $links = @(
     @{ Src = ".config\alacritty\alacritty.toml";  Dst = "$env:USERPROFILE\.config\alacritty\alacritty.toml" }
     @{ Src = "windows\alacritty\alacritty.toml";  Dst = "$env:APPDATA\alacritty\alacritty.toml" }
 
+    # WezTerm: reads ~/.config/wezterm/wezterm.lua on Windows too
+    @{ Src = ".config\wezterm\wezterm.lua";        Dst = "$env:USERPROFILE\.config\wezterm\wezterm.lua" }
+
     # Starship: uses ~/.config/starship.toml on all platforms
     @{ Src = ".config\starship.toml";              Dst = "$env:USERPROFILE\.config\starship.toml" }
 
