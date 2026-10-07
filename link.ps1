@@ -52,6 +52,7 @@ $links = @(
     # Claude Code global settings + instructions
     @{ Src = ".claude\settings.json";              Dst = "$env:USERPROFILE\.claude\settings.json" }
     @{ Src = ".claude\CLAUDE.md";                  Dst = "$env:USERPROFILE\.claude\CLAUDE.md" }
+    @{ Src = ".claude\statusline.sh";              Dst = "$env:USERPROFILE\.claude\statusline.sh" }
 
     # Claude Code global skills
     @{ Src = ".claude\skills";                     Dst = "$env:USERPROFILE\.claude\skills" }
