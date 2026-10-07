@@ -1,8 +1,8 @@
 # Direct local editing: do not constrain Codex to a workspace sandbox.
 sandbox_mode = "danger-full-access"
 approval_policy = "on-request"
-model = "gpt-5.6-sol"
-model_reasoning_effort = "high"
+model = "gpt-6-astra"
+model_reasoning_effort = "xhigh"
 personality = "friendly"
 
 [projects."/Users/daumantasb/Documents/xtras/Realm"]
@@ -112,6 +112,18 @@ trust_level = "trusted"
 trust_level = "trusted"
 
 [projects.'c:\users\user\primecom\scanmaster_device']
+trust_level = "trusted"
+
+[projects.'c:\users\friezy\desktop\slop\tetris_dmrs']
+trust_level = "trusted"
+
+[projects.'d:\archive\osr2\funlib']
+trust_level = "trusted"
+
+[projects.'d:\works\personal_projects\rust\hello_cargo']
+trust_level = "trusted"
+
+[projects.'c:\users\friezy\downloads\as']
 trust_level = "trusted"
 
 [windows]
