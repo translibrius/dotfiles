@@ -3,7 +3,7 @@
 Levels: 0 never seen · 1 can follow · 2 writes with hints · 3 writes cold + explains · 4 debugs + teaches
 
 ## Known background
-- Odin: has Arawn (engine dll, Win32 window, job system scaffold) and Otherworld (game, logger, custom build CLI). Exact level not tested yet.
+- Odin: wrote Arawn + Otherworld (engine dll, Win32 window, job scaffold, logger, build CLI) but 1+ year rusty, starting fresh 2026-10-07.
 - Shaders: self-rated "extremely bad".
 
 ## Skill map
