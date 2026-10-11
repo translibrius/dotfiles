@@ -59,9 +59,6 @@ $links = @(
 
     # Claude Code global skills — per skill, ~/.claude/skills also holds app-managed synced/
     @{ Src = ".claude\skills\teach";               Dst = "$env:USERPROFILE\.claude\skills\teach" }
-    # Function-hooks mod, auto-loaded from the skills folder. Needs the font from tools\emotefont
-    @{ Src = ".claude\skills\twitch-emotes";       Dst = "$env:USERPROFILE\.claude\skills\twitch-emotes" }
-
     # Codex global config, hooks, rules, and skills
     @{ Src = ".codex\config.toml";                  Dst = "$env:USERPROFILE\.codex\config.toml" }
     @{ Src = ".codex\hooks.json";                   Dst = "$env:USERPROFILE\.codex\hooks.json" }

@@ -30,13 +30,20 @@
   },
   "enabledPlugins": {
     "rust-analyzer-lsp@claude-plugins-official": true,
-    "clangd-lsp@claude-plugins-official": true
+    "clangd-lsp@claude-plugins-official": true,
+    "twitch-emotes@claude-twitch-emotes": true
   },
   "extraKnownMarketplaces": {
     "claude-plugins-official": {
       "source": {
         "source": "github",
         "repo": "anthropics/claude-plugins-official"
+      }
+    },
+    "claude-twitch-emotes": {
+      "source": {
+        "source": "github",
+        "repo": "translibrius/claude-twitch-emotes"
       }
     }
   },

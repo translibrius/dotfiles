@@ -21,10 +21,7 @@ config.audible_bell = 'Disabled'
 config.scrollback_lines = 10000
 
 -- Font: Iosevka NF Mono 13. Alacritty doesn't do ligatures, so kill them here too
--- Twitch Emotes: color bitmap font built by tools/emotefont, emotes live at U+100000+.
--- The claude twitch-emotes mod swaps emote names for those glyphs.
-config.font_dirs = { wezterm.home_dir .. '/dotfiles/tools/emotefont/font' }
-config.font = wezterm.font_with_fallback({ 'Iosevka Nerd Font Mono', 'Twitch Emotes' })
+config.font = wezterm.font('Iosevka Nerd Font Mono')
 config.font_size = 13
 config.harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' }
 
@@ -53,5 +50,10 @@ config.keys = {
   { key = 'C', mods = 'CTRL|SHIFT', action = act.CopyTo('Clipboard') },
   { key = 'V', mods = 'CTRL|SHIFT', action = act.PasteFrom('Clipboard') },
 }
+
+-- twitch-emotes: Twitch emotes in Claude Code (github.com/translibrius/claude-twitch-emotes).
+-- The mod (enabled in .claude/settings.json) downloads the font and writes this file on its
+-- first session, so on a fresh machine this is a no-op until then. Same as `/emotes setup`.
+do local ok, te = pcall(dofile, wezterm.home_dir .. '/.twitch-emotes/wezterm.lua'); if ok then te(config) end end
 
 return config

@@ -1,5 +1,0 @@
-{
-  "name": "twitch-emotes",
-  "version": "0.1.0",
-  "description": "Draws Twitch emote names in Claude's replies as real emotes (WezTerm + the TwitchEmotes font)"
-}
