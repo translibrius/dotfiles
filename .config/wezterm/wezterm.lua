@@ -21,7 +21,10 @@ config.audible_bell = 'Disabled'
 config.scrollback_lines = 10000
 
 -- Font: Iosevka NF Mono 13. Alacritty doesn't do ligatures, so kill them here too
-config.font = wezterm.font('Iosevka Nerd Font Mono')
+-- Twitch Emotes: color bitmap font built by tools/emotefont, emotes live at U+100000+.
+-- The claude twitch-emotes mod swaps emote names for those glyphs.
+config.font_dirs = { wezterm.home_dir .. '/dotfiles/tools/emotefont/font' }
+config.font = wezterm.font_with_fallback({ 'Iosevka Nerd Font Mono', 'Twitch Emotes' })
 config.font_size = 13
 config.harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' }
 
@@ -41,7 +44,7 @@ config.colors = {
   brights = { '#6b6b6b', '#c55555', '#aac474', '#feca88', '#82b8c8', '#c28cb8', '#93d3c3', '#f8f8f8' },
 }
 
--- Needed for the twitch emote mod (inline images). Default on, but be explicit
+-- Default on, but be explicit. (The emote mod does NOT use this, it went the font route)
 config.enable_kitty_graphics = true
 
 config.keys = {
