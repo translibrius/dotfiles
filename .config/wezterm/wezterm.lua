@@ -51,7 +51,7 @@ config.keys = {
   { key = 'V', mods = 'CTRL|SHIFT', action = act.PasteFrom('Clipboard') },
 }
 
--- twitch-emotes: Twitch emotes in Claude Code (github.com/translibrius/claude-twitch-emotes).
+-- twitch-emotes: Twitch emotes in Claude Code (github.com/translibrius/claude-twitch-mod).
 -- The mod (enabled in .claude/settings.json) downloads the font and writes this file on its
 -- first session, so on a fresh machine this is a no-op until then. Same as `/emotes setup`.
 do local ok, te = pcall(dofile, wezterm.home_dir .. '/.twitch-emotes/wezterm.lua'); if ok then te(config) end end

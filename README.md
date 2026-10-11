@@ -78,7 +78,7 @@ Requires **Developer Mode** (Settings > System > For developers) or **Run as Adm
 - [Iosevka Nerd Font Mono](https://www.nerdfonts.com/) — terminal font
 - [Neovim](https://neovim.io/) + [LazyVim](https://www.lazyvim.org/)
 - [yazi](https://yazi-rs.github.io/) — terminal file manager
-- [uv](https://docs.astral.sh/uv) — optional, only for `/emotes add` in the [twitch-emotes](https://github.com/translibrius/claude-twitch-emotes) Claude mod (`scoop install uv`). The mod itself installs from `.claude/settings.json`
+- [uv](https://docs.astral.sh/uv) — optional, only for `/emotes add` in the [twitch-emotes](https://github.com/translibrius/claude-twitch-mod) Claude mod (`scoop install uv`). The mod itself installs from `.claude/settings.json`
 
 ### Windows-only
 - [Alacritty](https://alacritty.org/) — GPU terminal (`winget install alacritty`)
