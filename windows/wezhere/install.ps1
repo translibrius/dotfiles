@@ -1,6 +1,7 @@
 <#
   wezhere installer: Explorer context menu "Open WezTerm here" (admin, no UAC popup)
   + "Open WezTerm here (user)". Self-elevates once to register the scheduled task.
+  Also retargets an existing WezTerm taskbar pin to launch elevated in ~.
   On Win11 the entries live under "Show more options" (or Shift+right-click).
 
   .\install.ps1            build must exist (sh build.sh), installs
@@ -78,4 +79,21 @@ foreach ($k in $keys) {
         Set-ItemProperty "$key\command" '(default)' "`"$exe`" $($e.Args)"
     }
 }
+# Taskbar pin: Windows has no API to pin things, so only retarget a pin that already exists.
+# Edited in place (not recreated) because the .lnk carries wezterm's AppUserModelID
+# (org.wezfurlong.wezterm); lose that and the elevated window gets its own taskbar icon
+# instead of lighting up the pin. Icon goes through scoop's `current` so updates don't orphan it.
+$pin = Get-ChildItem (Join-Path $env:APPDATA 'Microsoft\Internet Explorer\Quick Launch\User Pinned\TaskBar') -Filter 'WezTerm*.lnk' -ErrorAction SilentlyContinue | Select-Object -First 1
+if ($pin) {
+    $s = (New-Object -ComObject WScript.Shell).CreateShortcut($pin.FullName)
+    $s.TargetPath = $exe
+    $s.Arguments = "`"$env:USERPROFILE`""
+    $s.WorkingDirectory = $env:USERPROFILE
+    $s.IconLocation = "$icon,0"
+    $s.Save()
+    Write-Host "taskbar pin -> wezhere (elevated)"
+} else {
+    Write-Host "no WezTerm taskbar pin found; pin it from a running window and rerun to make it elevated"
+}
+
 Write-Host "wezhere installed -> $exe"
