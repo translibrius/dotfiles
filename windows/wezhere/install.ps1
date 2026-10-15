@@ -29,7 +29,8 @@ Unregister-ScheduledTask -TaskName wezhere -Confirm:$false -ErrorAction Silently
 
 if ($Uninstall) {
     Remove-Item $dir -Recurse -ErrorAction SilentlyContinue
-    Write-Host 'wezhere removed'
+    Remove-Item (Join-Path $env:APPDATA 'Microsoft\Windows\Start Menu\Programs\WezTerm.lnk') -ErrorAction SilentlyContinue
+    Write-Host 'wezhere removed (scoop update wezterm-nightly to restore its shortcut)'
     exit 0
 }
 
@@ -94,6 +95,20 @@ if ($pin) {
     Write-Host "taskbar pin -> wezhere (elevated)"
 } else {
     Write-Host "no WezTerm taskbar pin found; pin it from a running window and rerun to make it elevated"
+}
+
+# Start menu: our own WezTerm.lnk at the Programs root, because scoop rewrites its
+# Scoop Apps\WezTerm.lnk on every nightly update. Scoop's one gets retargeted too, until it doesn't.
+$programs = Join-Path $env:APPDATA 'Microsoft\Windows\Start Menu\Programs'
+foreach ($lnk in (Join-Path $programs 'WezTerm.lnk'), (Join-Path $programs 'Scoop Apps\WezTerm.lnk')) {
+    if ($lnk -like '*Scoop Apps*' -and -not (Test-Path $lnk)) { continue }
+    $s = (New-Object -ComObject WScript.Shell).CreateShortcut($lnk)
+    $s.TargetPath = $exe
+    $s.Arguments = "`"$env:USERPROFILE`""
+    $s.WorkingDirectory = $env:USERPROFILE
+    $s.IconLocation = "$icon,0"
+    $s.Save()
+    Write-Host "start menu -> $lnk"
 }
 
 Write-Host "wezhere installed -> $exe"
