@@ -75,4 +75,9 @@
     "light": "One Light",
     "dark": "Catppuccin Mocha",
   },
+  // twitch-emotes Claude Code mod: Zed only draws COLR emoji, so the mod builds + installs this
+  // font itself (tool/zedfont.py) when Claude starts in Zed. Restart Zed after it says so
+  "terminal": {
+    "font_fallbacks": ["Twitch Emotes COLR"],
+  },
 }

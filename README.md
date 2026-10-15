@@ -79,6 +79,13 @@ Requires **Developer Mode** (Settings > System > For developers) or **Run as Adm
 - [Neovim](https://neovim.io/) + [LazyVim](https://www.lazyvim.org/)
 - [yazi](https://yazi-rs.github.io/) — terminal file manager
 
+### Claude Code
+- `scoop install jq uv`: jq feeds `.claude/statusline.sh` (without it the status line is just `| repo:branch`), uv runs the emote mod's font builder
+- Twitch emotes mod ([translibrius/claude-twitch-mod](https://github.com/translibrius/claude-twitch-mod)), enabled in `.claude/settings.json`:
+  `/plugin install twitch-emotes --marketplace translibrius/claude-twitch-mod`
+  - WezTerm: nothing else, `wezterm.lua` already loads the mod's font shim
+  - Zed: start `claude` once in Zed's terminal, wait for "built the Zed emote font", restart Zed. The fallback is already in `.config/zed/settings.json`. The font is built for Zed's terminal font size + display scale and rebuilt by the mod when those change
+
 ### Windows-only
 - [Alacritty](https://alacritty.org/) — GPU terminal (`winget install alacritty`)
 - [Clink](https://chrisant996.github.io/clink/) — CMD enhancements for Starship (`winget install chrisant996.Clink`)
