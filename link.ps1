@@ -59,7 +59,6 @@ $links = @(
 
     # Claude Code global skills — per skill, ~/.claude/skills also holds app-managed synced/
     @{ Src = ".claude\skills\teach";               Dst = "$env:USERPROFILE\.claude\skills\teach" }
-
     # Codex global config, hooks, rules, and skills
     @{ Src = ".codex\config.toml";                  Dst = "$env:USERPROFILE\.codex\config.toml" }
     @{ Src = ".codex\hooks.json";                   Dst = "$env:USERPROFILE\.codex\hooks.json" }
