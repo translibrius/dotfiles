@@ -30,7 +30,8 @@
   },
   "enabledPlugins": {
     "rust-analyzer-lsp@claude-plugins-official": true,
-    "clangd-lsp@claude-plugins-official": true
+    "clangd-lsp@claude-plugins-official": true,
+    "twitch-emotes@claude-twitch-mod": true
   },
   "extraKnownMarketplaces": {
     "claude-plugins-official": {
@@ -38,9 +39,17 @@
         "source": "github",
         "repo": "anthropics/claude-plugins-official"
       }
+    },
+    "claude-twitch-mod": {
+      "source": {
+        "source": "github",
+        "repo": "translibrius/claude-twitch-mod"
+      }
     }
   },
   "effortLevel": "high",
+  "autoUpdatesChannel": "latest",
   "skipDangerousModePermissionPrompt": true,
+  "theme": "dark",
   "switchModelsOnFlag": false
 }
