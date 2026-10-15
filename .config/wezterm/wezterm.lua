@@ -51,4 +51,9 @@ config.keys = {
   { key = 'V', mods = 'CTRL|SHIFT', action = act.PasteFrom('Clipboard') },
 }
 
+-- twitch-emotes: Twitch emotes in Claude Code (github.com/translibrius/claude-twitch-mod).
+-- Hand-rolled instead of `/emotes setup` so the path isn't baked per machine. The mod writes
+-- ~/.twitch-emotes/wezterm.lua on session start; pcall = no-op on boxes without it.
+do local ok, te = pcall(dofile, wezterm.home_dir .. '/.twitch-emotes/wezterm.lua'); if ok then te(config) end end
+
 return config
