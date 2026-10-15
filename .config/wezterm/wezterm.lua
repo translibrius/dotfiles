@@ -41,7 +41,7 @@ config.colors = {
   brights = { '#6b6b6b', '#c55555', '#aac474', '#feca88', '#82b8c8', '#c28cb8', '#93d3c3', '#f8f8f8' },
 }
 
--- Needed for the twitch emote mod (inline images). Default on, but be explicit
+-- Default on, but be explicit. (The emote mod does NOT use this, it went the font route)
 config.enable_kitty_graphics = true
 
 config.keys = {
