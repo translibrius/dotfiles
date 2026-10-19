@@ -61,6 +61,8 @@
     "dock": "left"
   },
   "autosave": "on_focus_change",
+  // enforce_lf converts CRLF on save too; prefer_lf only affects new files
+  "line_ending": "enforce_lf",
   "ui_font_family": "Nirmala UI",
   "buffer_font_family": "Iosevka Nerd Font Mono",
   "session": {
