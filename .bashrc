@@ -20,15 +20,15 @@ function y() {
 # Editor
 export EDITOR=nvim
 
-# Local bins: claude (native installer), glm launcher, opencode
+# User-local binaries: claude, codex, mss, uv tools, glm launcher, opencode
 export PATH="$HOME/.local/bin:$HOME/.opencode/bin:$PATH"
 
 # API keys etc, never in git. bash syntax: export KEY=value
 # (the PowerShell profile parses the same file)
 [ -f "$HOME/.secrets" ] && source "$HOME/.secrets"
 
-# Initialize Starship prompt
-eval "$(starship init bash)"
+# Initialize Starship prompt (skip on boxes without it, e.g. fresh WSL)
+command -v starship >/dev/null && eval "$(starship init bash)"
 
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
 export PATH="/Users/daumantasb/.rd/bin:$PATH"
