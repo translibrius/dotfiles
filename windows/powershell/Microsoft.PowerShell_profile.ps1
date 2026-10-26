@@ -43,6 +43,7 @@ function glm {
         ANTHROPIC_DEFAULT_HAIKU_MODEL            = "glm-5.3-flash[1m]"
         CLAUDE_CODE_AUTO_COMPACT_WINDOW          = "1000000"
         CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC = "1"
+        ENABLE_TOOL_SEARCH                       = "false"   # GLM gets lost with deferred tools
         API_TIMEOUT_MS                           = "3000000"
     }
     $saved = @{}

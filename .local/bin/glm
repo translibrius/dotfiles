@@ -14,6 +14,9 @@ export ANTHROPIC_DEFAULT_SONNET_MODEL="glm-5.3[1m]"
 export ANTHROPIC_DEFAULT_HAIKU_MODEL="glm-5.3-flash[1m]"
 export CLAUDE_CODE_AUTO_COMPACT_WINDOW=1000000
 export CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC=1
+# No deferred tools. GLM sees ToolSearch, searches for Grep/Glob (which are NOT
+# deferred), finds nothing and decides they don't exist. Ship the full list.
+export ENABLE_TOOL_SEARCH=false
 # 50 min. z.ai's number, GLM in max-thinking mode is not fast
 export API_TIMEOUT_MS=3000000
 
