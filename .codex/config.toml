@@ -4,6 +4,8 @@ approval_policy = "on-request"
 model = "gpt-6-astra"
 model_reasoning_effort = "xhigh"
 personality = "friendly"
+# Read a repo's CLAUDE.md when it has no AGENTS.md, so one instructions file serves claude/glm/codex/opencode
+project_doc_fallback_filenames = ["CLAUDE.md"]
 
 [projects."/Users/daumantasb/Documents/xtras/Realm"]
 trust_level = "trusted"
