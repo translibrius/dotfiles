@@ -11,6 +11,40 @@ h5=$(j '.rate_limits.five_hour.used_percentage')
 h5r=$(j '.rate_limits.five_hour.resets_at')
 d7=$(j '.rate_limits.seven_day.used_percentage')
 cost=$(j '.cost.total_cost_usd')
+plan=""
+
+# GLM mode: claude talking to z.ai, not Anthropic. Anthropic's rate_limits block
+# is absent, so pull the plan's own quota from z.ai's (undocumented) endpoint the
+# ZCode GUI uses: GET /api/monitor/usage/quota/limit, Authorization = raw key, no Bearer.
+# limits[] entries: unit 3/number 5 = 5h window, unit 6/number 1 = weekly. percentage
+# is % used, nextResetTime is ms. Shape reverse-engineered 2026-10, expect drift.
+if [ -z "$h5" ] && { [[ "$ANTHROPIC_BASE_URL" == *z.ai* ]] || [[ "$model" == *[Gg][Ll][Mm]* ]]; }; then
+  key="${ZAI_API_KEY:-$ANTHROPIC_AUTH_TOKEN}"
+  cache="$HOME/.cache/glm-quota.json"
+  if [ -n "$key" ]; then
+    mkdir -p "$HOME/.cache" 2>/dev/null
+    mtime=$(stat -c %Y "$cache" 2>/dev/null || echo 0)
+    # Refresh in the background past the TTL. The statusline repaints on every
+    # keystroke; a blocking curl would stutter the prompt. This paint uses the
+    # cache as-is (maybe stale, maybe absent); the next one picks up fresh data.
+    if [ $(( $(date +%s) - mtime )) -gt 60 ]; then
+      ( curl -s -m 8 -H "Authorization: $key" -H "Accept: application/json" \
+          "https://api.z.ai/api/monitor/usage/quota/limit" -o "$cache.tmp" 2>/dev/null \
+          && mv -f "$cache.tmp" "$cache" 2>/dev/null ) >/dev/null 2>&1 &
+      disown 2>/dev/null
+    fi
+    if [ -s "$cache" ]; then
+      read -r h5 h5r d7 plan < <(jq -r '
+        (.data.limits // []) as $l
+        | ($l[] | select(.unit==3) | .percentage) as $fh
+        | ($l[] | select(.unit==3) | .nextResetTime) as $fr
+        | ($l[] | select(.unit==6) | .percentage) as $wk
+        | "\($fh // "") \(($fr // 0)/1000 | floor) \($wk // "") \(.data.level // "")"
+      ' "$cache" 2>/dev/null)
+      [ "$h5r" = "0" ] && h5r=""
+    fi
+  fi
+fi
 
 R=$'\e[0m'; DIM=$'\e[2m'; C=$'\e[36m'; M=$'\e[35m'
 # green >50, yellow >20, red otherwise (input is "% left")
@@ -43,6 +77,11 @@ if [ -n "$d7" ]; then
   out+=" ${DIM}|${R} 7d $(col "$left")${left}%${R}"
 fi
 
-[ -n "$cost" ] && out+=" ${DIM}| \$$(printf '%.2f' "$cost")${R}"
+# Anthropic cost estimate is meaningless on z.ai; show the plan tier instead.
+if [ -n "$plan" ]; then
+  out+=" ${DIM}| ${plan}${R}"
+elif [ -n "$cost" ]; then
+  out+=" ${DIM}| \$$(printf '%.2f' "$cost")${R}"
+fi
 
 printf '%s' "$out"
