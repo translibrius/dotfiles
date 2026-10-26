@@ -1,0 +1,10 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  // Z.AI GLM Coding Plan. Key comes from ZAI_API_KEY in ~/.secrets (loaded by .bashrc / PS profile).
+  "model": "zai-coding-plan/glm-5.3",
+  "providers": {
+    "zai-coding-plan": {
+      "settings": { "apiKey": "{env:ZAI_API_KEY}" }
+    }
+  }
+}

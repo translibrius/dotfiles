@@ -60,9 +60,17 @@ $links = @(
     # Claude Code global skills — per skill, ~/.claude/skills also holds app-managed synced/
     @{ Src = ".claude\skills\teach";               Dst = "$env:USERPROFILE\.claude\skills\teach" }
 
+    # glm launcher for Git Bash (PowerShell has its own glm function in the profile)
+    @{ Src = ".local\bin\glm";                     Dst = "$env:USERPROFILE\.local\bin\glm" }
+
+    # OpenCode v2 global config (it uses ~/.config even on Windows; the dir also holds runtime state)
+    @{ Src = ".config\opencode\opencode.jsonc";    Dst = "$env:USERPROFILE\.config\opencode\opencode.jsonc" }
+
     # Codex global config, hooks, rules, and skills
     @{ Src = ".codex\config.toml";                  Dst = "$env:USERPROFILE\.codex\config.toml" }
     @{ Src = ".codex\hooks.json";                   Dst = "$env:USERPROFILE\.codex\hooks.json" }
+    @{ Src = ".codex\glm.config.toml";              Dst = "$env:USERPROFILE\.codex\glm.config.toml" }
+    @{ Src = ".codex\zai-models.json";              Dst = "$env:USERPROFILE\.codex\zai-models.json" }
     @{ Src = ".codex\rules\default.rules";          Dst = "$env:USERPROFILE\.codex\rules\default.rules" }
     @{ Src = ".codex\skills\caveman";               Dst = "$env:USERPROFILE\.codex\skills\caveman" }
     @{ Src = ".codex\skills\compress";              Dst = "$env:USERPROFILE\.codex\skills\compress" }

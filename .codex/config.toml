@@ -131,3 +131,11 @@ sandbox = "elevated"
 
 [notice]
 hide_rate_limit_model_nudge = true
+
+# Z.AI GLM Coding Plan over the Responses API. Only used by `codex --profile glm`
+# (see glm.config.toml). Key comes from ZAI_API_KEY in ~/.secrets.
+[model_providers.zai]
+name = "Z.AI"
+base_url = "https://api.z.ai/api/v1"
+env_key = "ZAI_API_KEY"
+wire_api = "responses"

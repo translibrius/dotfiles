@@ -10,10 +10,14 @@ Personal config files for Linux (Hyprland/Wayland) and Windows.
   CLAUDE.md                     # Claude Code global instructions
   settings.json                 # Claude Code global settings
 .codex/
-  config.toml                   # Codex global settings
+  config.toml                   # Codex global settings (+ Z.AI provider)
+  glm.config.toml               # `codex --profile glm` -> Z.AI GLM
+  zai-models.json               # Codex model catalog for GLM
+.local/bin/glm                  # `claude` pointed at Z.AI GLM (Git Bash / Linux)
 .config/
   alacritty/alacritty.toml      # Terminal emulator
   zed/settings.json             # Zed editor settings
+  opencode/opencode.jsonc       # OpenCode v2 (Z.AI GLM provider)
   starship.toml                 # Cross-shell prompt
   nvim/                         # Neovim (LazyVim) — git submodule
   hypr/hyprland.conf            # Hyprland window manager (Linux)
@@ -70,6 +74,9 @@ Requires **Developer Mode** (Settings > System > For developers) or **Run as Adm
 | `.claude/settings.json` | `~/.claude/settings.json` |
 | `.claude/CLAUDE.md` | `~/.claude/CLAUDE.md` |
 | `.codex/config.toml` | `~/.codex/config.toml` |
+| `.codex/glm.config.toml`, `.codex/zai-models.json` | `~/.codex/` |
+| `.local/bin/glm` | `~/.local/bin/glm` |
+| `.config/opencode/opencode.jsonc` | `~/.config/opencode/opencode.jsonc` |
 
 ## Dependencies
 
@@ -93,6 +100,25 @@ Requires **Developer Mode** (Settings > System > For developers) or **Run as Adm
 
 ### Linux-only
 - Hyprland, waybar, rofi, kitty, wezterm
+
+## AI agent CLIs on other providers
+
+Secrets live in `~/.secrets` (bash syntax, never in git). `.bashrc`, `.zshrc` and the PowerShell profile all load it:
+
+```bash
+export ZAI_API_KEY=...   # z.ai > Personal Coding Plan > Plan Overview
+```
+
+| Command | What it is |
+|---|---|
+| `claude` | Claude Code on Anthropic, untouched |
+| `glm` | Same Claude Code binary, routed to Z.AI's GLM Coding Plan (`glm-5.3`, haiku slot = `glm-5.3-flash`). `GLM_MODEL=glm-5.3-flash[1m] glm` for the cheap one |
+| `codex --profile glm` | Codex on Z.AI (Responses API). Plain `codex` stays on OpenAI |
+| `opencode` | OpenCode v2 (`scoop install versions/opencode2`), defaults to `zai-coding-plan/glm-5.3` |
+
+`glm` exists twice on purpose: `.local/bin/glm` for bash and a `glm` function in the PowerShell profile. Same env table, keep them in sync.
+
+Z.AI only allows the Coding Plan key through their listed tools; raw SDK use may get the plan throttled.
 
 ## Neovim
 

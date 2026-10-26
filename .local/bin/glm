@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+# Claude Code pointed at Z.AI's GLM Coding Plan. Plain `claude` stays on Anthropic.
+# Needs ZAI_API_KEY in ~/.secrets. Env var table per https://docs.z.ai/devpack/tool/claude
+# PowerShell twin lives in windows/powershell/Microsoft.PowerShell_profile.ps1, keep both in sync.
+set -eu
+[ -f "$HOME/.secrets" ] && . "$HOME/.secrets"
+: "${ZAI_API_KEY:?"glm: ZAI_API_KEY not set. Put 'export ZAI_API_KEY=...' in ~/.secrets"}"
+
+unset ANTHROPIC_API_KEY
+export ANTHROPIC_AUTH_TOKEN="$ZAI_API_KEY"
+export ANTHROPIC_BASE_URL="https://api.z.ai/api/anthropic"
+export ANTHROPIC_DEFAULT_OPUS_MODEL="glm-5.3[1m]"
+export ANTHROPIC_DEFAULT_SONNET_MODEL="glm-5.3[1m]"
+export ANTHROPIC_DEFAULT_HAIKU_MODEL="glm-5.3-flash[1m]"
+export CLAUDE_CODE_AUTO_COMPACT_WINDOW=1000000
+export CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC=1
+# 50 min. z.ai's number, GLM in max-thinking mode is not fast
+export API_TIMEOUT_MS=3000000
+
+# --model on the CLI beats "model" in settings.json (which is an Anthropic alias z.ai won't know).
+# GLM_MODEL=glm-5.3-flash[1m] glm   for the cheap one
+exec claude --model "${GLM_MODEL:-glm-5.3[1m]}" "$@"

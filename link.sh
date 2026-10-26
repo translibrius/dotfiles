@@ -39,6 +39,8 @@ fi
 CODEX_LINKS=(
     "config.toml"
     "hooks.json"
+    "glm.config.toml"
+    "zai-models.json"
     "rules/default.rules"
     "skills/caveman"
     "skills/compress"

@@ -1,0 +1,7 @@
+# codex --profile glm  ->  Z.AI GLM Coding Plan.
+# Layers on top of config.toml (Codex >= 0.134 profile files, top-level keys only).
+# Catalog is per-profile so the default gpt catalog is untouched.
+model_provider = "zai"
+model = "glm-5.3"
+model_reasoning_effort = "max"
+model_catalog_json = "~/.codex/zai-models.json"
