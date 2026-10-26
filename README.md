@@ -116,6 +116,8 @@ export ZAI_API_KEY=...   # z.ai > Personal Coding Plan > Plan Overview
 | `codex --profile glm` | Codex on Z.AI (Responses API). Plain `codex` stays on OpenAI |
 | `opencode` | OpenCode v2 (`scoop install versions/opencode2`), defaults to `zai-coding-plan/glm-5.3` |
 
+OpenCode v2 runs a background service and resolves `{env:ZAI_API_KEY}` inside it. If the service was started from a shell without the key, `opencode service restart` from one that has it.
+
 `glm` exists twice on purpose: `.local/bin/glm` for bash and a `glm` function in the PowerShell profile. Same env table, keep them in sync.
 
 Z.AI only allows the Coding Plan key through their listed tools; raw SDK use may get the plan throttled.
