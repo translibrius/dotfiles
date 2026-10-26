@@ -31,6 +31,9 @@ if [ "$ACTION" = "unstow" ]; then
     stow -v -D --ignore='^\.codex' -t "$HOME" $DRY -d "$DOTFILES" .
 else
     echo "  Linking dotfiles..."
+    # Dirs that apps also write runtime state into: must exist first, or stow
+    # symlinks the whole dir into the repo and the junk lands in git status.
+    mkdir -p "$HOME/.local/bin" "$HOME/.config/opencode"
     stow -v --adopt --ignore='^\.codex' -t "$HOME" $DRY -d "$DOTFILES" .
 fi
 
