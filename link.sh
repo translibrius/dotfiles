@@ -40,6 +40,7 @@ fi
 # ~/.codex also contains Codex-managed runtime state, so link only the
 # user-managed entries instead of asking Stow to own the whole directory.
 CODEX_LINKS=(
+    "AGENTS.md"
     "config.toml"
     "hooks.json"
     "glm.config.toml"

@@ -2,7 +2,12 @@
   "$schema": "https://opencode.ai/config.json",
   // DeepInfra, pay per token. Any model from `curl -s https://api.deepinfra.com/v1/openai/models | jq -r '.data[].id'`
   // works as deepinfra/<id>. Keys come from ~/.secrets (loaded by .bashrc / .zshrc / PS profile).
-  // Auto-load Claude Code project instructions in any repo that has one.
+  // Instructions: ~/.config/opencode/AGENTS.md symlinks to the global
+  // ~/.claude/CLAUDE.md (Stow-managed from dotfiles), and repos mirror their
+  // CLAUDE.md as an AGENTS.md symlink, so every tool (claude/opencode/codex)
+  // reads the same file. This entry is the fallback for repos that only have a
+  // CLAUDE.md and no AGENTS.md mirror yet; OpenCode dedupes identical content
+  // when both load.
   "instructions": [
     "CLAUDE.md"
     // "README.md" — uncomment to auto-load the repo README too
