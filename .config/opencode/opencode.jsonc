@@ -1,8 +1,15 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  // Z.AI GLM Coding Plan. Key comes from ZAI_API_KEY in ~/.secrets (loaded by .bashrc / PS profile).
-  "model": "zai-coding-plan/glm-5.3",
+  // DeepInfra, pay per token. Any model from `curl -s https://api.deepinfra.com/v1/openai/models | jq -r '.data[].id'`
+  // works as deepinfra/<id>. Keys come from ~/.secrets (loaded by .bashrc / .zshrc / PS profile).
+  "model": "deepinfra/zai-org/GLM-5.3",
+  // titles/summaries: no reason to burn full GLM tokens on those
+  "small_model": "deepinfra/zai-org/GLM-5.3-Flash",
   "providers": {
+    "deepinfra": {
+      "settings": { "apiKey": "{env:DEEPINFRA_API_KEY}" }
+    },
+    // old Z.AI Coding Plan, still pickable in /models while ZAI_API_KEY exists
     "zai-coding-plan": {
       "settings": { "apiKey": "{env:ZAI_API_KEY}" }
     }
