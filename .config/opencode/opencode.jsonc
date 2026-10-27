@@ -2,6 +2,11 @@
   "$schema": "https://opencode.ai/config.json",
   // DeepInfra, pay per token. Any model from `curl -s https://api.deepinfra.com/v1/openai/models | jq -r '.data[].id'`
   // works as deepinfra/<id>. Keys come from ~/.secrets (loaded by .bashrc / .zshrc / PS profile).
+  // Auto-load Claude Code project instructions in any repo that has one.
+  "instructions": [
+    "CLAUDE.md"
+    // "README.md" — uncomment to auto-load the repo README too
+  ],
   "model": "deepinfra/zai-org/GLM-5.3",
   // titles/summaries: no reason to burn full GLM tokens on those
   "small_model": "deepinfra/zai-org/GLM-5.3-Flash",
