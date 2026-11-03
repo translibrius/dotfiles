@@ -59,6 +59,7 @@ $links = @(
 
     # Claude Code global skills — per skill, ~/.claude/skills also holds app-managed synced/
     @{ Src = ".claude\skills\teach";               Dst = "$env:USERPROFILE\.claude\skills\teach" }
+    @{ Src = ".claude\skills\release-day";         Dst = "$env:USERPROFILE\.claude\skills\release-day" }
 
     # glm launcher for Git Bash (PowerShell has its own glm function in the profile)
     @{ Src = ".local\bin\glm";                     Dst = "$env:USERPROFILE\.local\bin\glm" }
