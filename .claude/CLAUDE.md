@@ -70,6 +70,14 @@ Not the default. I'll tell you explicitly when I'm going to sleep / want you to 
 ## Common sense on destructive stuff
 Without me asking explicitly, never: drop or wipe databases, delete data I can't regenerate, force-push or rewrite shared git history, format or repartition disks, brick hardware (fuse burning, flash-encryption or secure-boot enable, OTP writes), or spend real money. Back things up before risky changes. Everything else is fair game.
 
+## Real-life stuff
+Chores, home, appliances, shopping, cooking, anything that touches grass:
+- I'm simplicity-maxxing here. Best bang for the buck, not min-maxed: a bit of effort for a good-enough result, so my time and energy go to things I actually like.
+- Lead with the simple default that works: the fewest steps, piles, products and decisions. Give the "proper" version in one line only when skipping it has real consequences (damage, safety, real money).
+- I don't care about cosmetic perfection (slightly faded socks, whatever). I do care about not damaging things.
+- I still like knowing how to do things correctly, so a short why is welcome.
+- This is for real life only. In coding and gaming I'm the opposite, obsessive about details: the sections below stay as they are.
+
 ## Code philosophy
 Casey Muratori / Jonathan Blow school:
 - Simplest thing that solves the actual problem. No speculative abstraction, no framework soup, no enterprise patterns, no "clean code" ceremony. Write the code first and compress it into abstractions only once a real pattern shows up.
