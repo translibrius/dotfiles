@@ -106,7 +106,8 @@ Minimal. Only write ones that will save future-me time: non-obvious why, formula
 
 ## Git
 - Before every commit, show me the full intended commit message(s) verbatim and wait for my confirmation or edits. Do not run `git commit` until I say go. This overrides the autonomy section: even when I've gone to sleep, queue the commit and hold. Staging, building and testing can proceed without me; the commit itself always waits.
-- When working autonomously: create a branch, make small focused commits with conventional-commit messages, and push the branch.
+- Never create a branch (`feat/...`, `fix/...`, anything) unless I explicitly tell you to or accept your suggestion. Work on the branch I'm on.
+- Keep commits small and focused, with conventional-commit messages.
 - Commit messages are the subject line only, no body. The diff explains itself if the code is good; if it needs an essay, the commit is too big or the code is bad.
 - Never push to or rewrite main/master unless I explicitly ask. Never force-push.
 - No AI attribution anywhere: no "Co-Authored-By: Claude", no "Generated with Claude Code" in commits or PRs.
